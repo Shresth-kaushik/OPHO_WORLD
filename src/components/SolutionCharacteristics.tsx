@@ -191,13 +191,13 @@ const SolutionCharacteristics: React.FC = () => {
             <p className="text-white/80 mb-6 leading-relaxed">
               Join hundreds of enterprises who have transformed their operations with our comprehensive solutions
             </p>
-            <button 
-              onClick={() => setIsDemoModalOpen(true)}
+            <Link
+              to="/contact"
               className="bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-primary-500/30 inline-flex items-center gap-2"
             >
               Start Your Journey
               <ArrowRight className="w-5 h-5" />
-            </button>
+            </Link>
           </div>
         </div>
 
