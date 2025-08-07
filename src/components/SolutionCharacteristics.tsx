@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Layers, Settings, Globe, Users, Zap, ArrowRight, CheckCircle } from 'lucide-react';
 import DemoModal from './DemoModal';
 
 const SolutionCharacteristics: React.FC = () => {
+  const navigate = useNavigate();
   const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
 
   const characteristics = [

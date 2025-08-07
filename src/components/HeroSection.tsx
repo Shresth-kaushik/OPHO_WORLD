@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { ArrowRight, Link, Lightbulb, TrendingUp } from 'lucide-react';
 import DemoModal from './DemoModal';
+import AnimatedPyramidHub from './AnimatedPyramidHub';
 import MarketGapsTrends from './MarketGapsTrends';
 import SustainabilityGaps from './SustainabilityGaps';
 import InnovationPotential from './InnovationPotential';
@@ -48,14 +49,11 @@ const HeroSection: React.FC = () => {
               </div>
 
               {/* Right Card - Image (Smaller, Overlapping over left card) */}
-              <div className="relative z-20 animate-fade-in-up animation-delay-600 w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl lg:-ml-32 xl:-ml-40 mx-auto lg:mx-0">
+              <div className="relative z-20 animate-fade-in-up animation-delay-600 w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-lg xl:max-w-xl lg:-ml-32 xl:-ml-40 mx-auto lg:mx-0 mb-4 mt-4 lg:mt-4">
                 <div className="relative overflow-hidden rounded-2xl">
-                  <img
-                    src="/header.jpeg"
-                    alt="OphoWorld Innovation"
-                    className="w-full h-48 sm:h-56 md:h-64 lg:h-80 xl:h-96 object-cover transition-transform duration-700 hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary-900/20 via-transparent to-transparent"></div>
+                  <div className="w-full h-96 sm:h-96 md:h-[26rem] lg:h-96 xl:h-[26rem] flex items-center justify-center">
+                    <AnimatedPyramidHub />
+                  </div>
                 </div>
               </div>
             </div>

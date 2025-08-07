@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Lightbulb, Pause, Play } from "lucide-react";
 import DemoModal from './DemoModal';
 
@@ -36,6 +37,7 @@ const makeSmoothPath = (pts: Pt[]) =>
 
 /* ───────── component ───────── */
 const MarketGapsTrends: React.FC = () => {
+  const navigate = useNavigate();
   const [active, setActive] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
@@ -46,6 +48,13 @@ const MarketGapsTrends: React.FC = () => {
 
   const pathD = makeSmoothPath(POINTS);
 
+  const handleGetStarted = () => {
+    navigate('/contact');
+  };
+
+  const handleLearnMore = () => {
+    navigate(POINTS[0].route);
+  };
   /* ── auto-advance that pauses when off-screen ── */
   const rootRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -117,6 +126,21 @@ const MarketGapsTrends: React.FC = () => {
             </span>
           </h1>
 
+          {/* Action Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 mt-8">
+            <button
+              onClick={handleGetStarted}
+              className="bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-primary-500/30"
+            >
+              Get Started
+            </button>
+            <button
+              onClick={handleLearnMore}
+              className="bg-white/10 hover:bg-white/20 text-white font-semibold py-3 px-8 rounded-lg border border-white/20 hover:border-white/30 transition-all duration-300 hover:scale-[1.02]"
+            >
+              Learn More
+            </button>
+          </div>
         </div>
 
       {/* ── chart ── */}
@@ -273,7 +297,7 @@ const MarketGapsTrends: React.FC = () => {
               to={p.route}
               key={p.id}
               className={`absolute font-semibold text-sm sm:text-base lg:text-lg whitespace-pre-line leading-tight select-none
-                          transition-colors duration-500 max-w-[140px] sm:max-w-[180px] lg:max-w-[200px] cursor-pointer hover:text-primary-400
+                          transition-colors duration-500 max-w-[140px] sm:max-w-[180px] lg:max-w-[200px] cursor-pointer hover:text-blue-400
                ${
                  active === i
                    ? "text-white"

@@ -225,7 +225,7 @@ const PrivacyPolicy: React.FC = () => {
                 you. Opho World can provide a copy of your stored personal data upon request. To fulfill your 
                 request, we may ask you to verify your identity. Please contact us at{' '}
                 <a href="mailto:privacy@ophoworld.com" className="text-primary-400 hover:text-primary-300 transition-colors">
-                  privacy@ophoworld.com
+                   info@ophotech.com 
                 </a>{' '}
                 to submit a personal information request.
               </p>
@@ -321,7 +321,7 @@ const PrivacyPolicy: React.FC = () => {
                     <div className="flex items-start gap-3">
                       <MapPin className="w-5 h-5 text-primary-400 mt-0.5" />
                       <div className="text-gray-300">
-                        <p>7025 Tomken Rd, Mississauga, Ontario L5T 2J8</p>
+                        <p>2302 - 228 Queens Quay W Downtown, Toronto M5J2X1</p>
                         <p>Canada</p>
                       </div>
                     </div>

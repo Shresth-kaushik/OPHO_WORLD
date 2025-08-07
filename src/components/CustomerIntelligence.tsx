@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Handshake, MessageCircle, UserRound, Activity } from "lucide-react";
 import DemoModal from './DemoModal';
 
@@ -157,6 +158,7 @@ function FlowLineWithDot({
 }
 
 export default function CustomerIntelligence() {
+  const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
   const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -176,6 +178,13 @@ export default function CustomerIntelligence() {
     return () => observer.disconnect();
   }, []);
 
+  const handleGetStarted = () => {
+    navigate('/contact');
+  };
+
+  const handleLearnMore = () => {
+    navigate('/customer-intelligence/engage-diverse-voices');
+  };
   return (
     <section
       ref={sectionRef}
@@ -198,6 +207,21 @@ export default function CustomerIntelligence() {
           </h1>
           <div className="mt-6 sm:mt-8 w-32 sm:w-48 lg:w-60 h-1 sm:h-1.5 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-sm mx-auto lg:mx-0"></div>
         
+          {/* Action Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 mt-8">
+            <button
+              onClick={handleGetStarted}
+              className="bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-primary-500/30"
+            >
+              Get Started
+            </button>
+            <button
+              onClick={handleLearnMore}
+              className="bg-white/10 hover:bg-white/20 text-white font-semibold py-3 px-8 rounded-lg border border-white/20 hover:border-white/30 transition-all duration-300 hover:scale-[1.02]"
+            >
+              Learn More
+            </button>
+          </div>
         </div>
       </header>
 
@@ -267,13 +291,16 @@ export default function CustomerIntelligence() {
           >
             <Link 
               to={paths[0].route}
-              className="flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-full border border-blue-400 bg-slate-900 p-2 shadow-[0_0_25px_0_rgba(0,191,255,0.7)] animate-pulse hover:bg-cyan-500/30 transition-all duration-300 cursor-pointer"
+              className="flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-full border-2 border-blue-400 bg-slate-900 p-2 shadow-[0_0_25px_0_rgba(0,191,255,0.7)] animate-pulse hover:bg-cyan-500/30 transition-all duration-300 cursor-pointer group"
             >
               <MessageCircle className="h-8 w-8 sm:h-10 sm:w-10 text-blue-400" strokeWidth={1.5} />
             </Link>
-            <p className="mt-2 max-w-[100px] sm:max-w-[120px] text-xs sm:text-sm md:text-base text-white/90 leading-tight">
+            <Link 
+              to={paths[0].route}
+              className="mt-2 max-w-[100px] sm:max-w-[120px] text-xs sm:text-sm md:text-base text-white/90 leading-tight hover:text-blue-400 transition-colors duration-300 cursor-pointer text-center"
+            >
               {paths[0].label}
-            </p>
+            </Link>
           </div>
 
           {/* Node 2 - Bottom Center */}
@@ -283,12 +310,15 @@ export default function CustomerIntelligence() {
             }`}
             style={{ transitionDelay: '2.1s' }}
           >
-            <p className="mb-2 max-w-[100px] sm:max-w-[120px] text-xs sm:text-sm md:text-base text-white/90 leading-tight">
-              {paths[1].label}
-            </p>
             <Link 
               to={paths[1].route}
-              className="flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-full border border-blue-400 bg-slate-900 p-2 shadow-[0_0_25px_0_rgba(0,191,255,0.7)] animate-pulse hover:bg-cyan-500/30 transition-all duration-300 cursor-pointer"
+              className="mb-2 max-w-[100px] sm:max-w-[120px] text-xs sm:text-sm md:text-base text-white/90 leading-tight hover:text-blue-400 transition-colors duration-300 cursor-pointer text-center"
+            >
+              {paths[1].label}
+            </Link>
+            <Link 
+              to={paths[1].route}
+              className="flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-full border border-blue-400 bg-slate-900 p-2 shadow-[0_0_25px_0_rgba(0,191,255,0.7)] animate-pulse hover:bg-cyan-500/30 transition-all duration-300 cursor-pointer group"
             >
               <UserRound className="h-8 w-8 sm:h-10 sm:w-10 text-blue-400" strokeWidth={1.5} />
             </Link>
@@ -303,13 +333,16 @@ export default function CustomerIntelligence() {
           >
             <Link 
               to={paths[2].route}
-              className="flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-full border border-blue-400 bg-slate-900 p-2 shadow-[0_0_25px_0_rgba(0,191,255,0.7)] animate-pulse hover:bg-cyan-500/30 transition-all duration-300 cursor-pointer"
+              className="flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-full border border-blue-400 bg-slate-900 p-2 shadow-[0_0_25px_0_rgba(0,191,255,0.7)] animate-pulse hover:bg-cyan-500/30 transition-all duration-300 cursor-pointer group"
             >
               <Activity className="h-8 w-8 sm:h-10 sm:w-10 text-blue-400" strokeWidth={1.5} />
             </Link>
-            <p className="mt-2 max-w-[100px] sm:max-w-[120px] text-xs sm:text-sm md:text-base text-white/90 leading-tight">
+            <Link 
+              to={paths[2].route}
+              className="mt-2 max-w-[100px] sm:max-w-[120px] text-xs sm:text-sm md:text-base text-white/90 leading-tight hover:text-blue-400 transition-colors duration-300 cursor-pointer text-center"
+            >
               {paths[2].label}
-            </p>
+            </Link>
           </div>
         </div>
       </div>

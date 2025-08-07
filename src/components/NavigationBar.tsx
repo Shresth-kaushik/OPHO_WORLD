@@ -34,6 +34,29 @@ const NavigationBar: React.FC = () => {
 
   const navigate = useNavigate();
 
+  const handleEcosystemNavigation = () => {
+    // If we're already on the homepage, scroll to ecosystem section
+    if (window.location.pathname === '/') {
+      const ecosystemSection = document.querySelector('#ecosystem');
+      if (ecosystemSection) {
+        ecosystemSection.scrollIntoView({ 
+          block: 'start'
+        });
+      }
+    } else {
+      // Navigate to homepage first, then scroll to ecosystem
+      navigate('/');
+      setTimeout(() => {
+        const ecosystemSection = document.querySelector('#ecosystem');
+        if (ecosystemSection) {
+          ecosystemSection.scrollIntoView({ 
+            block: 'start'
+          });
+        }
+      }, 100);
+    }
+  };
+
   const partnerOptions = [
     {
       id: 'customers',
@@ -102,10 +125,11 @@ const NavigationBar: React.FC = () => {
   const navigationItems = [
     { label: 'Home', href: '/' },
     { label: 'About', href: '/about' },
-    { label: 'Careers', href: '/careers' },
     { label: 'Enterprise Structure', href: '/enterprise-structure' },
+    { label: 'Our Offerings', href: '/#ecosystem' },
     { label: 'Value Journey', href: '/journey-strategy' },
-
+    { label: 'Resources', href: '/resources' },
+    { label: 'Careers', href: '/careers' },
   ];
 
   return (
@@ -181,14 +205,30 @@ const NavigationBar: React.FC = () => {
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
             {navigationItems.map((item) => (
-              <Link
-                key={item.label}
-                to={item.href}
-                className="nav-link-hover text-base font-medium text-white/90 transition-colors duration-300"
-                aria-label={`Navigate to ${item.label}`}
-              >
-                {item.label}
-              </Link>
+              item.onClick ? (
+                <Link
+                  key={item.label}
+                  to={item.href}
+               onClick={item.label === 'Our Offerings' ? handleEcosystemNavigation : undefined}
+                  className="text-white/80 hover:text-white transition-colors nav-link-hover"
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <Link
+                  key={item.label}
+                  to={item.href}
+                 onClick={() => {
+                   if (item.label === 'Our Offerings') {
+                     handleEcosystemNavigation();
+                   }
+                   setIsMenuOpen(false);
+                 }}
+                  className="text-white/80 hover:text-white transition-colors nav-link-hover"
+                >
+                  {item.label}
+                </Link>
+              )
             ))}
           </div>
 
@@ -231,18 +271,29 @@ const NavigationBar: React.FC = () => {
           <div className="p-8">
             <div className="space-y-6">
               {navigationItems.map((item) => (
-                <Link
-                  key={item.label}
-                  to={item.href}
-                  className="block text-base font-medium text-white/90 hover:text-white transition-colors duration-300"
-                  onClick={() => setIsMenuOpen(false)}
-                  aria-label={`Navigate to ${item.label}`}
-                >
-                  {item.label}
-                </Link>
+                item.onClick ? (
+                  <button
+                    key={item.label}
+                    onClick={() => {
+                      item.onClick();
+                      setIsMenuOpen(false);
+                    }}
+                    className="block text-white hover:text-primary-400 transition-colors text-lg font-medium"
+                  >
+                    {item.label}
+                  </button>
+                ) : (
+                  <Link
+                    key={item.label}
+                    to={item.href}
+                    onClick={() => setIsMenuOpen(false)}
+                    className="block text-white hover:text-primary-400 transition-colors text-lg font-medium"
+                  >
+                    {item.label}
+                  </Link>
+                )
               ))}
             </div>
-            
             {/* Mobile Authentication */}
             <div className="mt-8 pt-6 border-t border-white/10 space-y-4">
               <button

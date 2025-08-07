@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { BarChart3, Leaf, Recycle } from 'lucide-react';
 import DemoModal from './DemoModal';
 
 const SustainabilityGaps: React.FC = () => {
+  const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
   const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
 
@@ -11,6 +13,13 @@ const SustainabilityGaps: React.FC = () => {
     setIsVisible(true);
   }, []);
 
+  const handleGetStarted = () => {
+    navigate('/contact');
+  };
+
+  const handleLearnMore = () => {
+    navigate('/sustainability-gaps/esg-data-aggregation');
+  };
   return (
     <section className="relative min-h-screen bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 text-white flex flex-col lg:flex-row items-center justify-center overflow-hidden">
       {/* Background decorative elements */}
@@ -30,6 +39,21 @@ const SustainabilityGaps: React.FC = () => {
             </span>
           </h1>
 
+          {/* Action Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 mt-8">
+            <button
+              onClick={handleGetStarted}
+              className="bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-primary-500/30"
+            >
+              Get Started
+            </button>
+            <button
+              onClick={handleLearnMore}
+              className="bg-white/10 hover:bg-white/20 text-white font-semibold py-3 px-8 rounded-lg border border-white/20 hover:border-white/30 transition-all duration-300 hover:scale-[1.02]"
+            >
+              Learn More
+            </button>
+          </div>
         </div>
 
         {/* Right: Sustainability Diagram */}
@@ -137,65 +161,70 @@ const SustainabilityGaps: React.FC = () => {
           >
             <Link 
               to="/sustainability-gaps/circular-economy-compliance"
-              className="rounded-full bg-cyan-500/20 p-2 sm:p-3 lg:p-4 backdrop-blur-sm border border-cyan-400/30 hover:bg-cyan-500/30 transition-all duration-300 cursor-pointer"
+              className="flex h-12 w-12 sm:h-16 sm:w-16 items-center justify-center rounded-full border-2 border-blue-400 bg-gray-900/80 hover:bg-cyan-500/30 shadow-2xl hover:bg-blue-500/30 transition-all duration-300 cursor-pointer group"
             >
               <Recycle className="text-cyan-400 w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
             </Link>
-            <div className="text-left">
-              <p className="text-sm sm:text-base lg:text-lg text-white font-medium leading-tight">
-                Circular economy &
-              </p>
-              <p className="text-sm sm:text-base lg:text-lg text-white font-medium leading-tight">
-                compliance alignment
-              </p>
-            </div>
+            <Link 
+              to="/sustainability-gaps/circular-economy-compliance"
+              className=" mt-1 text-xs sm:text-lg text-white font-medium max-w-[80px] sm:max-w-none leading-tight hover:text-blue-400 transition-colors duration-300 cursor-pointer text-center"
+            >
+              <p>Circular economy &</p>
+              <p>compliance alignment</p>
+            </Link>
           </div>
 
           <div
-            className={`absolute top-[45%] left-[5%] flex items-center gap-2 text-xs sm:text-sm md:text-base transition-all duration-800 ${
+            className={`absolute top-[45%] left-[10%] flex items-center gap-2 text-xs sm:text-sm md:text-base transition-all duration-800 ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
             }`}
             style={{ transitionDelay: '2.8s' }}
           >
             <Link 
               to="/sustainability-gaps/green-product-pathways"
-              className="rounded-full bg-cyan-500/20 p-2 sm:p-3 lg:p-4 backdrop-blur-sm border border-cyan-400/30 hover:bg-cyan-500/30 transition-all duration-300 cursor-pointer"
+              className="flex h-12 w-12 sm:h-16 sm:w-16 items-center justify-center rounded-full border-2 border-blue-400 bg-gray-900/80 hover:bg-cyan-500/30 shadow-2xl  transition-all duration-300 cursor-pointer "
             >
-              <Leaf className="text-cyan-400 w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
+              <Leaf className=" text-cyan-400 w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
             </Link>
-            <div className="text-left">
-              <p className="text-sm sm:text-base lg:text-lg text-white font-medium leading-tight">
+            <Link 
+              to="/sustainability-gaps/green-product-pathways"
+              className=" group text-left hover:text-blue-400 transition-colors duration-300 cursor-pointer border-blue-400 "
+            >
+              <p className="text-sm sm:text-base lg:text-lg text-white font-medium leading-tight group-hover:text-blue-400 transition-colors duration-300 cursor-pointer">
                 Green 
               </p>
-              <p className="text-sm sm:text-base lg:text-lg text-white font-medium leading-tight">
+              <p className="text-sm sm:text-base lg:text-lg text-white font-medium leading-tight group-hover:text-blue-400 transition-colors duration-300">
                product
               </p>
-              <p className="text-sm sm:text-base lg:text-lg text-white font-medium leading-tight">
+              <p className="text-sm sm:text-base lg:text-lg text-white font-medium leading-tight group-hover:text-blue-400 transition-colors duration-300">
                pathways
               </p>
-            </div>
+            </Link>
           </div>
 
           <div
-            className={`absolute bottom-[15%] left-[5%] flex items-center gap-2 text-xs sm:text-sm md:text-base transition-all duration-800 ${
+            className={`absolute top-[45%] right-[-4%] flex items-center gap-2 text-xs sm:text-sm md:text-base transition-all duration-800 ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
             }`}
             style={{ transitionDelay: '3.1s' }}
           >
             <Link 
               to="/sustainability-gaps/esg-data-aggregation"
-              className="rounded-full bg-cyan-500/20 p-2 sm:p-3 lg:p-4 backdrop-blur-sm border border-cyan-400/30 hover:bg-cyan-500/30 transition-all duration-300 cursor-pointer"
+              className="flex h-12 w-12 sm:h-16 sm:w-16 items-center justify-center rounded-full border-2 border-blue-400 bg-gray-900/80 hover:bg-cyan-500/30 shadow-2xl hover:bg-blue-500/30 transition-all duration-300 cursor-pointer group"
             >
               <BarChart3 className="text-cyan-400 w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
             </Link>
-            <div className="text-left">
-              <p className="text-sm sm:text-base lg:text-lg text-white font-medium leading-tight">
+            <Link 
+              to="/sustainability-gaps/esg-data-aggregation"
+              className="group text-left hover:text-blue-400 transition-colors duration-300 cursor-pointer"
+            >
+              <p className="text-sm sm:text-base lg:text-lg text-white font-medium leading-tight group-hover:text-blue-400 transition-colors duration-300">
                 ESG data
               </p>
-              <p className="text-sm sm:text-base lg:text-lg text-white font-medium leading-tight">
+              <p className="text-sm sm:text-base lg:text-lg text-white font-medium leading-tight group-hover:text-blue-400 transition-colors duration-300">
                 aggregation
               </p>
-            </div>
+            </Link>
           </div>
 
         </div>

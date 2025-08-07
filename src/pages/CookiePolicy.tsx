@@ -211,7 +211,7 @@ const CookiePolicy: React.FC = () => {
                       <Mail className="w-5 h-5 text-primary-400 mt-0.5" />
                       <div>
                         <p className="text-white font-semibold">Opho World Inc.</p>
-                        <p className="text-gray-300">7025 Tomken Rd, Mississauga, Ontario L5T 2J8</p>
+                        <p className="text-gray-300">2302 - 228 Queens Quay W Downtown, Toronto M5J2X1</p>
                         <p className="text-gray-300">Canada</p>
                       </div>
                     </div>

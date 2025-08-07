@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Brain, Shield, Globe, ArrowRight, ExternalLink, Zap, Target, Settings, TrendingUp, X } from 'lucide-react';
 
 const EcosystemOverview: React.FC = () => {
@@ -98,6 +99,9 @@ const EcosystemOverview: React.FC = () => {
               <div className="text-sm text-white/60">Global Partners</div>
             </div>
           </div>
+
+          {/* Action Buttons */}
+       
         </div>
 
         {/* Interactive Cards Grid */}

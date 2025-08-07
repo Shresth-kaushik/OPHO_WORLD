@@ -1,9 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Link as LinkIcon, Lightbulb, Flag } from 'lucide-react';
 import DemoModal from './DemoModal';
 
 const LeadershipEnablement: React.FC = () => {
+  const navigate = useNavigate();
   const pathRef = useRef<SVGPathElement>(null);
   const [dashSegment, setDashSegment] = useState({ x1: 100, y1: 400, x2: 120, y2: 400 });
   const [pathLength, setPathLength] = useState(0);
@@ -20,6 +22,13 @@ const LeadershipEnablement: React.FC = () => {
     setIsVisible(true);
   }, []);
 
+  const handleGetStarted = () => {
+    navigate('/contact');
+  };
+
+  const handleLearnMore = () => {
+    navigate('/leadership-enablement/cross-bu-knowledge');
+  };
   // Initialize path length
   useEffect(() => {
     if (pathRef.current) {
@@ -135,6 +144,21 @@ const LeadershipEnablement: React.FC = () => {
             </span>
           </h1>
         
+          {/* Action Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 mt-8">
+            <button
+              onClick={handleGetStarted}
+              className="bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-primary-500/30"
+            >
+              Get Started
+            </button>
+            <button
+              onClick={handleLearnMore}
+              className="bg-white/10 hover:bg-white/20 text-white font-semibold py-3 px-8 rounded-lg border border-white/20 hover:border-white/30 transition-all duration-300 hover:scale-[1.02]"
+            >
+              Learn More
+            </button>
+          </div>
         </div>
 
         {/* Right: Staircase Diagram */}
@@ -216,18 +240,24 @@ const LeadershipEnablement: React.FC = () => {
           >
             <Link 
               to="/leadership-enablement/cross-bu-knowledge"
-              className="rounded-full bg-cyan-500/20 p-2 sm:p-3 lg:p-4 backdrop-blur-sm border border-cyan-400/30 hover:bg-cyan-500/30 transition-all duration-300 cursor-pointer"
+              className="rounded-full bg-cyan-500/20 p-2 sm:p-3 lg:p-4 backdrop-blur-sm border border-blue-400 bg-gray-900/80 hover:bg-cyan-500/30 transition-all duration-300 cursor-pointer group"
             >
               <LinkIcon className="text-cyan-400 w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
             </Link>
-            <div className="text-left">
-              <p className="text-sm sm:text-base lg:text-lg text-white font-medium leading-tight">
+            
+            <Link 
+              to="/leadership-enablement/cross-bu-knowledge"
+              className=" group text-left hover:text-blue-400 transition-colors duration-300 cursor-pointer"
+            >
+             
+              <p className="text-sm sm:text-base lg:text-lg text-white font-medium leading-tight  transition-colors duration-300 group-hover:text-blue-400">
                 Cross-BU knowledge
               </p>
-              <p className="text-sm sm:text-base lg:text-lg text-white font-medium leading-tight">
+              <p className="text-sm sm:text-base lg:text-lg text-white font-medium leading-tight  transition-colors duration-300 group-hover:text-blue-400">
                 exchange
               </p>
-            </div>
+                
+            </Link>
           </div>
 
           {/* Stage 2: Mentorship + strategic foresight */}
@@ -239,21 +269,24 @@ const LeadershipEnablement: React.FC = () => {
           >
             <Link 
               to="/leadership-enablement/mentorship-foresight"
-              className="rounded-full bg-cyan-500/20 p-2 sm:p-3 lg:p-4 backdrop-blur-sm border border-cyan-400/30 hover:bg-cyan-500/30 transition-all duration-300 cursor-pointer"
+              className="rounded-full bg-cyan-500/20 p-2 sm:p-3 lg:p-4 backdrop-blur-sm border border-blue-400 bg-gray-900/80 hover:bg-cyan-500/30 transition-all duration-300 cursor-pointer group hover:text-blue-400"
             >
-              <Lightbulb className="text-cyan-400 w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
+              <Lightbulb className=" text-cyan-400 w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
             </Link>
-            <div className="text-left">
-              <p className="text-sm sm:text-base lg:text-lg text-white font-medium leading-tight">
+            <Link 
+              to="/leadership-enablement/mentorship-foresight"
+              className="group text-left hover:text-blue-400 transition-colors duration-300 cursor-pointer"
+            >
+              <p className="text-sm sm:text-base lg:text-lg text-white font-medium leading-tight group-hover:text-blue-400 transition-colors duration-300">
                 Mentorship +
               </p>
-              <p className="text-sm sm:text-base lg:text-lg text-white font-medium leading-tight">
+              <p className="text-sm sm:text-base lg:text-lg text-white font-medium leading-tight group-hover:text-blue-400 transition-colors duration-300">
                 strategic foresight
               </p>
-              <p className="text-sm sm:text-base lg:text-lg text-white font-medium leading-tight">
+              <p className="text-sm sm:text-base lg:text-lg text-white font-medium leading-tight group-hover:text-blue-400 transition-colors duration-300">
                 development
               </p>
-            </div>
+            </Link>
           </div>
 
           {/* Stage 3: Thought leadership */}
@@ -265,24 +298,27 @@ const LeadershipEnablement: React.FC = () => {
           >
             <Link 
               to="/leadership-enablement/thought-leadership"
-              className="rounded-full bg-cyan-500/20 p-2 sm:p-3 lg:p-4 backdrop-blur-sm border border-cyan-400/30 hover:bg-cyan-500/30 transition-all duration-300 cursor-pointer"
+              className="rounded-full bg-cyan-500/20 p-2 sm:p-3 lg:p-4 backdrop-blur-sm border border-blue-400 bg-gray-900/80 hover:bg-cyan-500/30 transition-all duration-300 cursor-pointer group"
             >
               <Flag className="text-cyan-400 w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
             </Link>
-            <div className="text-left">
-              <p className="text-sm sm:text-base lg:text-lg text-white font-medium leading-tight">
+            <Link 
+              to="/leadership-enablement/thought-leadership"
+              className="group text-left hover:text-blue-400 transition-colors duration-300 cursor-pointer"
+            >
+              <p className="text-sm sm:text-base lg:text-lg text-white font-medium leading-tight group-hover:text-blue-400 transition-colors duration-300">
                 Thought
               </p>
-              <p className="text-sm sm:text-base lg:text-lg text-white font-medium leading-tight">
+              <p className="text-sm sm:text-base lg:text-lg text-white font-medium leading-tight group-hover:text-blue-400 transition-colors duration-300">
                 leadership
               </p>
-              <p className="text-sm sm:text-base lg:text-lg text-white font-medium leading-tight">
+              <p className="text-sm sm:text-base lg:text-lg text-white font-medium leading-tight group-hover:text-blue-400 transition-colors duration-300">
                 & scalable
               </p>
-              <p className="text-sm sm:text-base lg:text-lg text-white font-medium leading-tight">
+              <p className="text-sm sm:text-base lg:text-lg text-white font-medium leading-tight group-hover:text-blue-400 transition-colors duration-300">
                 governance
               </p>
-            </div>
+            </Link>
           </div>
         </div>
       </div>

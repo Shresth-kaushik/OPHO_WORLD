@@ -54,384 +54,204 @@ const Resources: React.FC = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  // Dummy data for case studies
+  // Dummy data for white papers
+  const whitePapers: WhitePaper[] = [
+    {
+      id: '1',
+      title: 'AI-Driven Business Intelligence: Enhancing Operational Efficiency',
+      description: 'Explores AI-powered BI tools to optimize business operations and identify growth opportunities.',
+      category: 'White Paper',
+      pages: 42,
+      downloadUrl: 'https://www.researchgate.net/publication/386086165_AI-Driven_Business_Intelligence_Enhancing_Operational_Efficiency_and_Driving_Market_Innovation',
+      image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
+      publishDate: '2024-01-15',
+      downloads: 2340,
+      publisher: 'OphoWorld Research'
+    },
+    {
+      id: '2',
+      title: 'AI and Cybersecurity: Navigating Future Threats',
+      description: 'Provides insights into integrating AI with cybersecurity to address evolving threats.',
+      category: 'White Paper',
+      pages: 48,
+      downloadUrl: 'https://www.mimecast.com/resources/white-papers/ai-and-cybersecurity/',
+      image: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
+      publishDate: '2024-01-20',
+      downloads: 1890,
+      publisher: 'OphoWorld Research'
+    },
+    {
+      id: '3',
+      title: 'Advancing Multi-Agent Systems Through Model Context Protocol',
+      description: 'Introduces a framework for enhancing multi-agent systems, relevant for OphoWorld\'s AI Smart Labs and agentic AI workflows.',
+      category: 'White Paper',
+      pages: 45,
+      downloadUrl: 'https://arxiv.org/abs/2504.21030',
+      image: 'https://images.pexels.com/photos/8386434/pexels-photo-8386434.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
+      publishDate: '2024-01-25',
+      downloads: 1560,
+      publisher: 'OphoWorld Research'
+    },
+    {
+      id: '4',
+      title: 'Cloud Architecture for Scalable SaaS Platforms',
+      description: 'Guides cloud infrastructure design, crucial for OphoWorld\'s scalable platform hosting and multi-BU integration.',
+      category: 'White Paper',
+      pages: 52,
+      downloadUrl: 'https://docs.aws.amazon.com/whitepapers/latest/saas-architecture-fundamentals/saas-architecture-fundamentals.html',
+      image: 'https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
+      publishDate: '2024-01-30',
+      downloads: 2100,
+      publisher: 'OphoWorld Research'
+    },
+    {
+      id: '5',
+      title: 'Ethical AI and Governance Frameworks',
+      description: 'Presents governance models ensuring ethical AI deployment, compliance, and trustworthiness, critical for OphoWorld\'s reputation.',
+      category: 'White Paper',
+      pages: 38,
+      downloadUrl: 'https://www.governanceinstitute.com.au/thought-leadership/ai-ethics-and-governance-white-paper-launch/',
+      image: 'https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
+      publishDate: '2024-02-05',
+      downloads: 1780,
+      publisher: 'OphoWorld Research'
+    },
+    {
+      id: '6',
+      title: 'Digital Trust in Government: A Strategic Overview',
+      description: 'Valuable for OphoWorld\'s government partnerships, this outlines trust-building and digital transformation strategies.',
+      category: 'White Paper',
+      pages: 48,
+      downloadUrl: 'https://www.weforum.org/publications/industries-in-the-intelligent-age-white-paper-series/cybersecurity/',
+      image: 'https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
+      publishDate: '2024-02-10',
+      downloads: 1450,
+      publisher: 'OphoWorld Research'
+    },
+    {
+      id: '7',
+      title: 'AI-Driven Business Intelligence for Enterprises',
+      description: 'Explains frameworks to implement AI-powered BI tools, improving decision-making and strategic planning in OphoWorld\'s BUs.',
+      category: 'White Paper',
+      pages: 44,
+      downloadUrl: 'https://example.com/ai-business-intelligence.pdf',
+      image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
+      publishDate: '2024-02-15',
+      downloads: 1680,
+      publisher: 'OphoWorld Research'
+    },
+    {
+      id: '8',
+      title: 'Cybersecurity in the Age of AI',
+      description: 'Covers AI-enabled cybersecurity measures, essential for protecting OphoSecure and enterprise data in OphoWorld ecosystem.',
+      category: 'White Paper',
+      pages: 50,
+      downloadUrl: 'https://example.com/ai-cybersecurity.pdf',
+      image: 'https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
+      publishDate: '2024-02-20',
+      downloads: 1890,
+      publisher: 'OphoWorld Research'
+    },
+    {
+      id: '9',
+      title: 'Multi-Agent Systems for Scalable AI Applications',
+      description: 'Discusses architecture of multi-agent AI systems supporting OphoWorld\'s AI Smart Labs and agentic AI workflows.',
+      category: 'White Paper',
+      pages: 46,
+      downloadUrl: 'https://example.com/multi-agent-systems.pdf',
+      image: 'https://images.pexels.com/photos/8386434/pexels-photo-8386434.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
+      publishDate: '2024-02-25',
+      downloads: 1560,
+      publisher: 'OphoWorld Research'
+    },
+    {
+      id: '10',
+      title: 'Cloud Architecture for Scalable SaaS Platforms',
+      description: 'Guides cloud infrastructure design, crucial for OphoWorld\'s scalable platform hosting and multi-BU integration.',
+      category: 'White Paper',
+      pages: 52,
+      downloadUrl: 'https://example.com/cloud-architecture.pdf',
+      image: 'https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
+      publishDate: '2024-03-01',
+      downloads: 2100,
+      publisher: 'OphoWorld Research'
+    },
+    {
+      id: '11',
+      title: 'Ethical AI and Governance Frameworks',
+      description: 'Presents governance models ensuring ethical AI deployment, compliance, and trustworthiness, critical for OphoWorld\'s reputation.',
+      category: 'White Paper',
+      pages: 40,
+      downloadUrl: 'https://example.com/ethical-ai-framework.pdf',
+      image: 'https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
+      publishDate: '2024-03-05',
+      downloads: 1780,
+      publisher: 'OphoWorld Research'
+    },
+    {
+      id: '12',
+      title: 'Digital Trust in Government: A Strategic Overview',
+      description: 'Valuable for OphoWorld\'s government partnerships, this outlines trust-building and digital transformation strategies.',
+      category: 'White Paper',
+      pages: 48,
+      downloadUrl: 'Link',
+      image: 'https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
+      publishDate: '2024-03-10',
+      downloads: 1450,
+      publisher: 'OphoWorld Research'
+    }
+  ];
+
+  // Updated case studies data
   const caseStudies: CaseStudy[] = [
     {
       id: '1',
-      title: 'Coca-Cola Transforms Customer Engagement',
-      industry: 'Microsoft',
-      challenge: 'Need for AI-driven digital transformation to enhance customer engagement',
-      solution: 'AI-driven digital transformation using Azure',
-      results: ['Enhanced customer engagement', 'Improved digital transformation', 'Better data insights'],
+      title: 'Real Estate Auction Platforms: Technologies & Trends',
+      industry: 'Use Case',
+      challenge: 'Demonstrates best practices and tech stacks for PropBidNow platform, relevant for OphoWorld\'s real estate auction solutions.',
+      solution: 'Real estate auction solutions with advanced technology stack',
+      results: ['Enhanced auction platform', 'Improved user experience', 'Better transaction processing'],
       image: 'https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
-      downloadUrl: 'https://customers.microsoft.com/en-us/story/828325-coca-cola-customer-engagement-azure-en',
+      downloadUrl: 'https://www.bidhom.com/case-studies',
       readTime: '8 min read',
       publishDate: '2024-01-15'
     },
     {
       id: '2',
-      title: 'Lufthansa Uses IBM Watson to Optimize Operations',
-      industry: 'IBM',
-      challenge: 'Need for AI and data-driven operational optimization',
-      solution: 'AI and data-driven operational optimization using IBM Watson',
-      results: ['Optimized operations', 'Better data-driven decisions', 'Enhanced efficiency'],
+      title: 'AI-Powered Customer Segmentation and Personalization',
+      industry: 'Use Case',
+      challenge: 'Shows how RFM analysis and AI-driven customer insights improve upselling and cross-selling, enhancing OphoWorld\'s marketing BUs.',
+      solution: 'AI-driven customer insights and personalization',
+      results: ['Enhanced customer segmentation', 'Improved upselling', 'Better cross-selling strategies'],
       image: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
-      downloadUrl: 'https://www.ibm.com/case-studies/lufthansa-ai-operations',
+      downloadUrl: 'https://www.pecan.ai/blog/ai-customer-segmentation-marketing/',
       readTime: '10 min read',
       publishDate: '2024-01-10'
     },
     {
       id: '3',
-      title: 'Mayo Clinic Accelerates Medical Research with AI',
-      industry: 'Google Cloud',
-      challenge: 'Need for AI and cloud computing to accelerate medical research',
-      solution: 'AI + cloud computing in healthcare using Google Cloud',
-      results: ['Accelerated medical research', 'Better patient outcomes', 'Enhanced data analysis'],
+      title: 'AI-Enabled Workflow Automation in Enterprises',
+      industry: 'Use Case',
+      challenge: 'Explains AI-driven workflow automation to optimize processes, increase efficiency, and reduce operational costs in OphoWorld.',
+      solution: 'AI-driven workflow automation and process optimization',
+      results: ['Optimized processes', 'Increased efficiency', 'Reduced operational costs'],
       image: 'https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
-      downloadUrl: 'https://cloud.google.com/customers/mayo-clinic',
+      downloadUrl: 'https://aisera.com/blog/workflow-automation/',
       readTime: '12 min read',
       publishDate: '2024-01-05'
     },
     {
       id: '4',
-      title: 'AEP Smart Grid Modernization with AI',
-      industry: 'Accenture',
-      challenge: 'Modernizing energy infrastructure with AI technology',
-      solution: 'AI in energy infrastructure & industrial IoT',
-      results: ['Smart grid modernization', 'Improved energy efficiency', 'Better infrastructure management'],
+      title: 'AI in Education: Curriculum Design and Implementation',
+      industry: 'Use Case',
+      challenge: 'Details AI literacy program development, useful for OphoWorld\'s AI Viksit Bharat educational initiatives.',
+      solution: 'AI literacy program development and implementation',
+      results: ['Enhanced AI education', 'Better curriculum design', 'Improved learning outcomes'],
       image: 'https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
-      downloadUrl: 'https://www.accenture.com/us-en/case-studies/utilities/aep-smart-grid-modernization',
+      downloadUrl: 'https://timesofindia.indiatimes.com/city/delhi/ai-but-verify-navigating-future-of-learning/articleshow/123080374.cms',
       readTime: '9 min read',
       publishDate: '2024-01-08'
     },
-    {
-      id: '5',
-      title: 'Toyota Enhances CX with Salesforce CRM + AI',
-      industry: 'Salesforce',
-      challenge: 'Enhancing customer experience through intelligent CRM integration',
-      solution: 'Customer intelligence and digital integration',
-      results: ['Enhanced customer experience', 'Better CRM integration', 'Improved customer intelligence'],
-      image: 'https://images.pexels.com/photos/590020/pexels-photo-590020.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
-      downloadUrl: 'https://www.salesforce.com/customer-success-stories/toyota/',
-      readTime: '7 min read',
-      publishDate: '2024-01-12'
-    },
-    {
-      id: '6',
-      title: 'Cleveland Clinic Secures Hybrid Workforce',
-      industry: 'Cisco',
-      challenge: 'Implementing Zero Trust architecture for healthcare security',
-      solution: 'Zero Trust architecture in healthcare',
-      results: ['Secured hybrid workforce', 'Enhanced security posture', 'Better compliance'],
-      image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
-      downloadUrl: 'https://www.cisco.com/c/en/us/about/customer-stories/cleveland-clinic.html',
-      readTime: '11 min read',
-      publishDate: '2024-01-06'
-    },
-    {
-      id: '7',
-      title: 'SaaS Provider Secures Cloud with Prisma',
-      industry: 'Palo Alto Networks',
-      challenge: 'Implementing cloud-native cybersecurity architecture',
-      solution: 'Cloud-native cybersecurity architecture',
-      results: ['Secured cloud infrastructure', 'Enhanced cybersecurity', 'Better threat protection'],
-      image: 'https://images.pexels.com/photos/8386434/pexels-photo-8386434.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
-      downloadUrl: 'https://www.paloaltonetworks.com/customers',
-      readTime: '10 min read',
-      publishDate: '2024-01-04'
-    },
-    {
-      id: '8',
-      title: 'FINRA Uses AWS for Real-Time Surveillance',
-      industry: 'AWS',
-      challenge: 'Implementing cybersecurity and regulatory compliance in finance',
-      solution: 'Cybersecurity + regulatory compliance in finance',
-      results: ['Real-time surveillance', 'Enhanced compliance', 'Better risk management'],
-      image: 'https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
-      downloadUrl: 'https://aws.amazon.com/solutions/case-studies/finra/',
-      readTime: '13 min read',
-      publishDate: '2024-01-03'
-    },
-    {
-      id: '9',
-      title: 'Sparebank 1 Enhances Fraud Detection with AI',
-      industry: 'IBM',
-      challenge: 'Need for advanced AI-powered fraud detection systems',
-      solution: 'AI in fraud risk mitigation',
-      results: ['Enhanced fraud detection', 'Reduced false positives', 'Better risk assessment'],
-      image: 'https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
-      downloadUrl: 'https://www.ibm.com/case-studies/sparebank-1',
-      readTime: '9 min read',
-      publishDate: '2024-01-02'
-    },
-    {
-      id: '10',
-      title: 'GE Oil & Gas Migrates to AWS Cloud',
-      industry: 'AWS',
-      challenge: 'Industrial cloud migration and deployment challenges',
-      solution: 'Industrial cloud migration and deployment',
-      results: ['Successful cloud migration', 'Improved scalability', 'Cost optimization'],
-      image: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
-      downloadUrl: 'https://aws.amazon.com/solutions/case-studies/ge-oil-gas/',
-      readTime: '11 min read',
-      publishDate: '2024-01-01'
-    },
-    {
-      id: '11',
-      title: 'Spotify Scales Globally on Google Cloud',
-      industry: 'Google Cloud',
-      challenge: 'Need for cloud-native deployment at global scale',
-      solution: 'Cloud-native deployment at scale',
-      results: ['Global scalability', 'Enhanced performance', 'Better user experience'],
-      image: 'https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
-      downloadUrl: 'https://cloud.google.com/customers/spotify',
-      readTime: '8 min read',
-      publishDate: '2023-12-30'
-    },
-    {
-      id: '12',
-      title: 'LinkedIn Learning for Workforce Enablement',
-      industry: 'LinkedIn Learning',
-      challenge: 'Corporate upskilling in AI and cybersecurity domains',
-      solution: 'Corporate upskilling in AI/cyber',
-      results: ['Enhanced workforce skills', 'Better AI adoption', 'Improved cybersecurity awareness'],
-      image: 'https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
-      downloadUrl: 'https://learning.linkedin.com/customer-success-stories',
-      readTime: '7 min read',
-      publishDate: '2023-12-28'
-    },
-    {
-      id: '13',
-      title: 'Infosys Upskills 50,000+ Engineers via Coursera',
-      industry: 'Coursera',
-      challenge: 'Scalable technical training at enterprise level',
-      solution: 'Scalable technical training at enterprise level',
-      results: ['Massive skill development', 'Enhanced technical capabilities', 'Better project outcomes'],
-      image: 'https://images.pexels.com/photos/590020/pexels-photo-590020.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
-      downloadUrl: 'https://www.coursera.org/business/customers/infosys',
-      readTime: '10 min read',
-      publishDate: '2023-12-25'
-    },
-    {
-      id: '14',
-      title: 'AI + Azure Learning Paths for Partners',
-      industry: 'Microsoft Learn',
-      challenge: 'Partner enablement and AI training requirements',
-      solution: 'Partner enablement and AI training',
-      results: ['Enhanced partner capabilities', 'Better AI implementation', 'Improved customer outcomes'],
-      image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
-      downloadUrl: 'https://learn.microsoft.com/en-us/training/',
-      readTime: '9 min read',
-      publishDate: '2023-12-22'
-    },
-    {
-      id: '15',
-      title: 'Stripe Enhances Developer Support with GPT',
-      industry: 'OpenAI',
-      challenge: 'Need for agentic AI and chat support automation',
-      solution: 'Agentic AI and chat support automation',
-      results: ['Improved developer experience', 'Automated support', 'Enhanced productivity'],
-      image: 'https://images.pexels.com/photos/8386434/pexels-photo-8386434.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
-      downloadUrl: 'https://openai.com/customer-stories/stripe',
-      readTime: '8 min read',
-      publishDate: '2023-12-20'
-    },
-    {
-      id: '16',
-      title: 'NIST Cybersecurity Framework in Finance',
-      industry: 'NIST',
-      challenge: 'Government-backed security governance implementation',
-      solution: 'Government-backed security governance',
-      results: ['Enhanced security framework', 'Better compliance', 'Improved risk management'],
-      image: 'https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
-      downloadUrl: 'https://www.nist.gov/cyberframework/success-stories',
-      readTime: '12 min read',
-      publishDate: '2023-12-18'
-    },
-    {
-      id: '17',
-      title: 'AI Governance by World Economic Forum',
-      industry: 'WEF',
-      challenge: 'Ethics, trust, and policy in AI implementation',
-      solution: 'Ethics, trust, and policy in AI',
-      results: ['Better AI governance', 'Enhanced ethical standards', 'Improved policy frameworks'],
-      image: 'https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
-      downloadUrl: 'https://www.weforum.org/whitepapers/',
-      readTime: '13 min read',
-      publishDate: '2023-12-15'
-    }
-  ];
-
-  // Dummy data for white papers
-  const whitePapers: WhitePaper[] = [
-    {
-      id: '1',
-      title: 'State of AI 2024 Report',
-      description: 'Global AI trends, LLMs, policy, adoption',
-      category: 'AI Trends',
-      pages: 156,
-      downloadUrl: 'https://aiindex.stanford.edu/report/',
-      image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
-      publishDate: '2024-03-15',
-      downloads: 15420,
-      publisher: 'Stanford HAI / AI Index'
-    },
-    {
-      id: '2',
-      title: 'The Future of AI and the Workforce',
-      description: 'Impact of AI on jobs, automation and upskilling',
-      category: 'Workforce',
-      pages: 89,
-      downloadUrl: 'https://workofthefuture.mit.edu/research-publications/',
-      image: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
-      publishDate: '2024-02-20',
-      downloads: 8750,
-      publisher: 'MIT Task Force on Work of the Future'
-    },
-    {
-      id: '3',
-      title: 'Generative AI: The Next Productivity Frontier',
-      description: 'Enterprise productivity using GenAI',
-      category: 'Productivity',
-      pages: 64,
-      downloadUrl: 'https://www.mckinsey.com/business-functions/mckinsey-digital/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier',
-      image: 'https://images.pexels.com/photos/8386434/pexels-photo-8386434.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
-      publishDate: '2024-01-25',
-      downloads: 12340,
-      publisher: 'McKinsey & Company'
-    },
-    {
-      id: '4',
-      title: 'AI Governance: A Holistic Approach to Implement AI',
-      description: 'Ethical AI and global policy frameworks',
-      category: 'Governance',
-      pages: 72,
-      downloadUrl: 'https://www.weforum.org/whitepapers/',
-      image: 'https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
-      publishDate: '2024-01-10',
-      downloads: 6890,
-      publisher: 'World Economic Forum (WEF)'
-    },
-    {
-      id: '5',
-      title: 'AI Adoption in the Enterprise',
-      description: 'Enterprise maturity models, risk, scaling AI',
-      category: 'Enterprise AI',
-      pages: 48,
-      downloadUrl: 'https://www2.deloitte.com/global/en/pages/about-deloitte/articles/ai-institute.html',
-      image: 'https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
-      publishDate: '2024-01-05',
-      downloads: 9560,
-      publisher: 'Deloitte AI Institute'
-    },
-    {
-      id: '6',
-      title: 'NIST Cybersecurity Framework 2.0 (2024)',
-      description: 'Secure-by-design cybersecurity implementation',
-      category: 'Cybersecurity',
-      pages: 112,
-      downloadUrl: 'https://www.nist.gov/cyberframework',
-      image: 'https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
-      publishDate: '2024-02-26',
-      downloads: 18750,
-      publisher: 'NIST (U.S. Government)'
-    },
-    {
-      id: '7',
-      title: 'Zero Trust Maturity Model',
-      description: 'Zero Trust architecture roadmap',
-      category: 'Security Architecture',
-      pages: 95,
-      downloadUrl: 'https://www.cisa.gov/resources-tools/resources/zero-trust-maturity-model',
-      image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
-      publishDate: '2024-01-15',
-      downloads: 7230,
-      publisher: 'U.S. Department of Homeland Security (CISA)'
-    },
-    {
-      id: '8',
-      title: 'Cybersecurity Predictions 2024',
-      description: 'Future threats, cloud-native security, AI security',
-      category: 'Security Trends',
-      pages: 58,
-      downloadUrl: 'https://www.paloaltonetworks.com/resources/research/cybersecurity-predictions',
-      image: 'https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
-      publishDate: '2024-01-08',
-      downloads: 5670,
-      publisher: 'Palo Alto Networks'
-    },
-    {
-      id: '9',
-      title: 'AI & Cybersecurity Convergence',
-      description: 'Use of AI in modern security operations',
-      category: 'AI Security',
-      pages: 76,
-      downloadUrl: 'https://www.ibm.com/reports/threat-intelligence',
-      image: 'https://images.pexels.com/photos/8386434/pexels-photo-8386434.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
-      publishDate: '2024-01-12',
-      downloads: 8940,
-      publisher: 'IBM X-Force Threat Intelligence'
-    },
-    {
-      id: '10',
-      title: 'Cloud Transformation Maturity Framework',
-      description: 'Staged model for cloud adoption and readiness',
-      category: 'Cloud Strategy',
-      pages: 84,
-      downloadUrl: 'https://aws.amazon.com/resources/analyst-reports/',
-      image: 'https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
-      publishDate: '2024-01-20',
-      downloads: 11250,
-      publisher: 'AWS / IDC'
-    },
-    {
-      id: '11',
-      title: 'Unlocking the Value of Cloud at Scale',
-      description: 'Accelerating cloud ROI in large organizations',
-      category: 'Cloud ROI',
-      pages: 67,
-      downloadUrl: 'https://www.accenture.com/us-en/insights/cloud/cloud-value',
-      image: 'https://images.pexels.com/photos/590020/pexels-photo-590020.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
-      publishDate: '2024-01-18',
-      downloads: 6780,
-      publisher: 'Accenture'
-    },
-    {
-      id: '12',
-      title: 'The Digital Skills Gap Report',
-      description: 'Future-ready training programs and certifications',
-      category: 'Skills Development',
-      pages: 92,
-      downloadUrl: 'https://news.microsoft.com/skills/skills-report/',
-      image: 'https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
-      publishDate: '2024-02-05',
-      downloads: 9870,
-      publisher: 'LinkedIn / Microsoft'
-    },
-    {
-      id: '13',
-      title: 'Closing the AI Skills Gap',
-      description: 'Training ecosystem for AI literacy',
-      category: 'AI Education',
-      pages: 54,
-      downloadUrl: 'https://www.weforum.org/reports/',
-      image: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
-      publishDate: '2024-01-28',
-      downloads: 7450,
-      publisher: 'World Economic Forum & Coursera'
-    },
-    {
-      id: '14',
-      title: 'AI Education & Responsible Use Framework',
-      description: 'Policies for AI in education',
-      category: 'Education Policy',
-      pages: 78,
-      downloadUrl: 'https://unesdoc.unesco.org/',
-      image: 'https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
-      publishDate: '2024-02-12',
-      downloads: 5230,
-      publisher: 'UNESCO'
-    }
   ];
 
   // Documentation sections
@@ -564,7 +384,7 @@ const Resources: React.FC = () => {
             
             <div className="mb-6">
               <div className="text-xs text-gray-400">
-                <span className="font-semibold text-primary-400">Publisher:</span> {paper.publisher}
+               
               </div>
             </div>
             
