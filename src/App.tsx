@@ -37,6 +37,7 @@ import PersonalizationModelsEngagement from './pages/PersonalizationModelsEngage
 import DeepIndustryScans from './pages/DeepIndustryScans';
 import IdeationLabsPrototyping from './pages/IdeationLabsPrototyping';
 import ContinuousMonitoringInnovation from './pages/ContinuousMonitoringInnovation';
+import ConnectCreateEvolve from './pages/ConnectCreateEvolve';
 
 // Home page component
 const HomePage = () => (
@@ -86,6 +87,7 @@ function App() {
           <Route path="/market-gaps-trends/deep-industry-scans" element={<DeepIndustryScans />} />
           <Route path="/market-gaps-trends/ideation-labs-prototyping" element={<IdeationLabsPrototyping />} />
           <Route path="/market-gaps-trends/continuous-monitoring-innovation" element={<ContinuousMonitoringInnovation />} />
+          <Route path="/connect-create-evolve" element={<ConnectCreateEvolve />} />
         </Routes>
       </Router>
     </div>

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { TrendingUp, Handshake, Settings } from 'lucide-react';
 
 const ICONS = [
@@ -38,6 +39,7 @@ const centroid = ICONS.reduce(
 
 export default function AnimatedPyramidHub() {
   const [hovered, setHovered] = useState<number | null>(null);
+  const navigate = useNavigate();
 
   // --- Color Constants --- //
   const PRIMARY_BLUE = "#1A2B5B";
@@ -126,6 +128,11 @@ export default function AnimatedPyramidHub() {
         ease: "easeInOut",
       },
     },
+  };
+
+  const handleIconClick = (index: number) => {
+    const sectionMap = ['create', 'connect', 'evolve'];
+    navigate(`/connect-create-evolve#${sectionMap[index]}`);
   };
 
   // --- PYRAMID SVG --- //
@@ -254,7 +261,10 @@ export default function AnimatedPyramidHub() {
             animate={hovered === idx ? "hover" : "animate"}
             onMouseEnter={() => setHovered(idx)}
             onMouseLeave={() => setHovered(null)}
+            onClick={() => handleIconClick(idx)}
             tabIndex={0}
+            role="button"
+            aria-label={`Navigate to ${pt.label} section`}
           >
             {/* Animated inner dashed ring */}
             <svg

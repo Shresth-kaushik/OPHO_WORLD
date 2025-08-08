@@ -66,7 +66,7 @@ export default function CompetitorMappingAnimation() {
               onClick={handleGetStarted}
               className="bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-primary-500/30"
             >
-              Get Started
+              Let's Connect
             </button>
             <button
               onClick={handleLearnMore}
